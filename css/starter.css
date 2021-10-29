@@ -1,12 +1,25 @@
 body{
     margin: 0;
     padding: 0;
+    font: 16pt "Alegreya Sans SC", serif;
     font-size: 16pt; /* test for this! Make all sizes em or rem */
+    background-image: url(../images/concrete_seamless.png);
+    background-color: #f1f1f1;
   }
   
   header{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: #fff;
     border-bottom: 3px solid #50C7C7;
+    
+  }
+  nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
   
   h1{
@@ -25,6 +38,10 @@ body{
     padding: 0 30px;
   }
   
+  a:link, a:visited {
+    color: blue;
+}
+
   a.skip{
     background: white;
     left: 0;
@@ -59,7 +76,10 @@ body{
   }
 
   .pricing{
+    display: flex;
     min-height: 475px;
+    flex-direction: column;
+    align-items: center;
   }
 
   .card {
@@ -67,12 +87,26 @@ body{
     background: #fff;
     border-radius: 7px;
     padding: 0 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    width: 450px;
+    height: auto;
   
   }
 
   .card > ul{
     list-style: none;
     padding-left: 5px;
+    
+  }
+  .card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
   }
   
   .card > ul li {
@@ -105,6 +139,39 @@ body{
 
   .gallery{
     min-height: 600px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+  .gallery > img {
+    border: solid 10px #50C7C7;
+    margin: 10px;
+    width: 300px;
+    height: auto;
+  }
+
+  #nav_links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #logo{
+    animation-name: stretch;
+    animation-duration: 1;
+  }
+  @keyframes stretch{
+    0%{
+      opacity: 0;
+      width: 50px;
+      height: auto;
+    }
+    100%{
+      opacity: 1;
+      width: 425px;
+      height: auto;
+    }
+
   }
   
   footer{
@@ -120,5 +187,75 @@ body{
         transform: scaleY(1.1);
         z-index: -99;
   }
+  header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    position: fixed;
+    width: 100%
+  }
+  .card > header{
+    background: #288088;
+    border: solid 2px #45ADAD;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+    position: static;
+    width: auto;
+  }
+  
+  .nav_links {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .pricing{
+    display: flex;
+    min-height: 475px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .card {
+    margin: 12px;
+    background: #fff;
+    border-radius: 7px;
+    padding: 0 0 25px 0;
+    display: flex;
+    flex-direction: column;
+    flex-basis: auto;
+    width: 250px;
+    height: auto;
+  }
 }
+@media (prefers-reduced-motion){
+  #logo{
+    animation-name: none;
+  }
+}
+@media print{
+  body {
+    background-image: none;
+  }
+  .card {
+    border: solid 2px #45ADDD;
+    flex-basis: 250px;
+  }
+  .pricing{
+    align-items: flex-end;
+  }
+  .gallery{
+    display: none;
+  }
+  nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  
+    }
+
+
   
